@@ -32,7 +32,9 @@ module.exports.init = function() {
      use the listings router middleware for requests to the api 
      check the variables list above
   */
-  app.use('/api/listings');
+  app.use('/api/listings', function(req, res){
+
+  });
 
 
    /* Request Handler for coordinates
@@ -42,7 +44,7 @@ module.exports.init = function() {
   });
 
 
-  /* Request Handeler for all other routes
+  /* Request Handler for all other routes
      Sends a response (res) to go to the homepage for all routes not specified */ 
   app.all('/*', function(req, res) {
    
