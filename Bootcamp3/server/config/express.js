@@ -32,8 +32,8 @@ module.exports.init = function() {
      use the listings router middleware for requests to the api 
      check the variables list above
   */
-  app.use('/api/listings', function(req, res){
-
+  app.use('/api/listings', listingsRouter, function(req, res){
+    res.send(req.results);
   });
 
 
@@ -47,7 +47,7 @@ module.exports.init = function() {
   /* Request Handler for all other routes
      Sends a response (res) to go to the homepage for all routes not specified */ 
   app.all('/*', function(req, res) {
-   
+     res.sendFile(path.resolve('client/index.html'));
    /*Add YOUR CODE HERE 
       see https://expressjs.com/en/api.html#res.sendFile
       see https://nodejs.org/api/path.html
